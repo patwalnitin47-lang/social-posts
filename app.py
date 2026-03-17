@@ -11,7 +11,7 @@ app.config["SECRET_KEY"] = "your_secret_key_here"
 app.config["SQLALCHEMY_DATABASE_URI"] = (
     "postgresql://postgres:Nopassword%4003@localhost/test"
 )
-
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 loginmanager = LoginManager()
 loginmanager.init_app(app)
 loginmanager.login_view = "login"
